@@ -1,4 +1,5 @@
 import "./Home.css";
+import { searchIngredient } from "./localbackend/index.js";
 import { useState, useEffect } from "react";
 import { Link, Navigate } from "react-router-dom";
 
@@ -24,7 +25,8 @@ function Button({ title, id, setUserDt, userDt }) {
 			onClick={() => {
 				if (id === "a") {
 					console.log(id);
-					setUserDt({ ...userDt, logined: true, name: "이유림" });
+					var dad = searchIngredient("");
+					console.log(dad);
 				}
 			}}
 		>
