@@ -4,7 +4,9 @@
 }
 
 .App {
-	height: 100vh;
+	height: 100%;
+	weight: 100%;
+	display: flex;
 	background-color: #000000;
 	text-align: center;
 	justify-content: center;

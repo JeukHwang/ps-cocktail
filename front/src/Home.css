@@ -1,7 +1,7 @@
 .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .home {
@@ -15,55 +15,55 @@
 }
 
 .home .logo {
-    font-size: 40px;
-    width: 60px;
-    height: 60px;
+	font-size: 40px;
+	width: 60px;
+	height: 60px;
 
-    background-color: white;
-    border-radius: 30px;
+	background-color: white;
+	border-radius: 30px;
 
-    margin: 20px;
+	margin: 20px;
 }
 
 .search-bar {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
 
 .psuedo-search-bar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 
-    background-color: white;
+	background-color: white;
 
-    width: fit-content;
-    height: fit-content;
-    border-radius: 30px;
+	width: fit-content;
+	height: fit-content;
+	border-radius: 30px;
 
-    padding: 0px 20px;
+	padding: 0px 20px;
 }
 
 .search-emoji {
-    font-size: 20px;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
+	font-size: 20px;
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
 
-    background-color: white;
+	background-color: white;
 }
 
 .search-input {
-    background-color: color;
-    border: none;
-    width: min(50vw,300px);
-    height: 40px;
-    padding: 0px 20px;
+	background-color: color;
+	border: none;
+	width: min(50vw, 300px);
+	height: 40px;
+	padding: 0px 20px;
 }
 
 .search-input:focus {
-    outline: none;
+	outline: none;
 }
 
 .input-user-data {
@@ -76,39 +76,39 @@
 }
 
 .autocomplete {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 5px;
 }
 
-.autocomplete-words { 
-    margin: 10px 0px;
-    padding: 5px;
-    color: black;
-    background-color: white;
-    width: min(50vw,300px);
-    height: 20px;
-    border-radius: 10px;
+.autocomplete-words {
+	margin: 10px 0px;
+	padding: 5px;
+	color: black;
+	background-color: white;
+	width: min(50vw, 300px);
+	height: 20px;
+	border-radius: 10px;
 }
 
 .ingredients {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 5px;
 }
 
 .ingredients .ingredient {
-    margin: 10px 0px;
-    padding: 5px;
-    color: black;
-    background-color: #660000;
-    width: min(50vw,300px);
-    height: 20px;
-    border-radius: 10px;
+	margin: 10px 0px;
+	padding: 5px;
+	color: black;
+	background-color: #660000;
+	width: min(50vw, 300px);
+	height: 20px;
+	border-radius: 10px;
 }
 
 .user-data-row {
