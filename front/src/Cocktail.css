@@ -25,11 +25,10 @@
 }
 .images {
 	width: auto;
-	height: 30%;
+	height: 40vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	color: aliceblue;
 	margin-bottom: 2%;
 }
