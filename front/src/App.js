@@ -23,12 +23,8 @@ function App() {
 						path="/home"
 						element={<Home userDt={userDt} setUserDt={setUserDt} />}
 					/>
-					<Route
-						path="/cocktail/:id"
-						element={
-							<Cocktail />
-						}
-					/>
+
+					<Route path="/cocktail/:name" element={<Cocktail />} />
 					<Route
 						path="*"
 						element={
@@ -42,4 +38,3 @@ function App() {
 }
 
 export default App;
-
