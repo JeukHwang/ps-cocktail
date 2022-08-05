@@ -1,11 +1,12 @@
-import { Navigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
+
+import { Navigate, useParams } from "react-router-dom";
 
 function Cocktail(props) {
-	const { name } = useParams();
+	const { id } = useParams();
 	return (
-		<div>
-			<strong>{props.userDt.name}님 안녕하세요!</strong>
+		<div className="ProfessorInfo-page">
+			<p>cocktail</p>
+			<p>{id}</p>
 		</div>
 	);
 }

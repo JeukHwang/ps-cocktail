@@ -24,9 +24,9 @@ function App() {
 						element={<Home userDt={userDt} setUserDt={setUserDt} />}
 					/>
 					<Route
-						path="/cocktail"
+						path="/cocktail/:id"
 						element={
-							<Cocktail userDt={userDt} setUserDt={setUserDt} />
+							<Cocktail />
 						}
 					/>
 					<Route

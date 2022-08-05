@@ -1,3 +1,9 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .home {
 	display: flex;
 	height: 100%;
@@ -8,6 +14,56 @@
 	flex-direction: column;
 }
 
+.home .logo {
+    font-size: 40px;
+    width: 60px;
+    height: 60px;
+
+    background-color: white;
+    border-radius: 30px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.psuedo-search-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    background-color: white;
+
+    width: fit-content;
+    height: fit-content;
+    border-radius: 30px;
+
+    padding: 0px 20px;
+}
+
+.search-emoji {
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+
+    background-color: white;
+}
+
+.search-input {
+    background-color: color;
+    border: none;
+    width: min(50vw,300px);
+    height: 40px;
+    padding: 0px 20px;
+}
+
+.search-input:focus {
+    outline: none;
+}
+
 .input-user-data {
 	width: 70%;
 	height: 100%;
@@ -15,6 +71,17 @@
 	justify-content: space-evenly;
 	flex-direction: column;
 	justify-self: center;
+}
+
+.autocomplete {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.autocomplete-words { 
+    color: white
 }
 
 .user-data-row {
@@ -39,11 +106,6 @@
 	height: 50%;
 	margin-bottom: 10%;
 	background-color: #ffffff;
-}
-
-.main-img {
-	display: flex;
-	height: 30%;
 }
 
 .home-info {
