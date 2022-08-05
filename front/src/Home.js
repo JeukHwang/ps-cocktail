@@ -1,5 +1,5 @@
 import "./Home.css";
-import { autoComplete, search } from "./localbackend/index.js";
+import { autoComplete, combination, search } from "./localbackend/index.js";
 
 
 function Home(props) {
@@ -17,11 +17,19 @@ function Home(props) {
         const searchInput = document.getElementById("searchInput");
         document.body.addEventListener("keypress", (event) => {
             if (event.key === "Enter") {
-                if (searchInput.value === "") { return; }
-                const exist = search(searchInput.value) !== undefined;
-                if (!exist) { return; }
+                if (searchInput.value === "") {
+                    alert("Write name of ingredient not blank!");
+                    return;
+                }
+                const searchData = search(searchInput.value);
+                const existAsIng = searchData !== undefined && searchData.mode === "ing";
+                if (!existAsIng) {
+                    alert("Write name of ingredient not cocktail!");
+                    return;
+                }
                 addIngredient(searchInput.value);
                 searchInput.value = "";
+                setAutocomplete();
                 return;
             }
         });
@@ -37,15 +45,24 @@ function Home(props) {
                 if (!words[i]) { return; }
                 const [type, word] = words[i];
                 const text = document.createElement("div");
+                text.id = word;
                 text.classList.add("autocomplete-words");
-                text.innerText = `${type} ${word}`;
+                text.innerText = `${type} | ${word}`;
                 text.addEventListener("click", () => {
-                    const str = text.innerText;
+                    // const str = text.innerText;
                     // const type = str.substring(0, str.indexOf(' '));
-                    const name = str.substring(str.indexOf(' ') + 1);
-                    searchInput.value = name;
+                    // const name = str.substring(str.indexOf(' ') + 1);
+                    searchInput.value = text.id;
                     setAutocomplete();
                 });
+                const button = document.createElement("div");
+                button.id = `/${type}/${word}`;
+                button.classList.add("words-button");
+                button.innerText = "🔗";
+                button.addEventListener("click", function() {
+                    window.location.href = this.id;
+                }.bind(button))
+                text.appendChild(button);
                 autocompleteElem.appendChild(text);
             });
             if (words.length - maxNum > 0) {
@@ -73,17 +90,30 @@ function Home(props) {
             element.remove();
         }
 
+        const combinationElem = document.getElementById("combination-button");
+        const combinations = document.getElementById("combinations");
+        function resetCombinations() {
+            while (combinations.lastElementChild) {
+                combinations.removeChild(combinations.lastElementChild);
+            }
+        }
+
         function addIngredient(name) {
+            resetCombinations();
+            if (loadLocalStorage("addIngredient-load").includes(name)) {
+                alert("Already added!");
+                return;
+            }
             saveLocalStorage([...loadLocalStorage("addIngredient-load"), name], "addIngredient-save");
             const ing = document.createElement("div");
             ing.id = `id-${name}`;
             ing.classList.add("ingredient");
             ing.innerText = name;
             ing.addEventListener("click", () => {
-                const str = ing.innerText;
-                const type = str.substring(0, str.indexOf(' '));
-                const name = str.substring(str.indexOf(' ') + 1);
-                window.location.href = `/${type}/${name}`;
+                // const str = ing.innerText;
+                // const type = str.substring(0, str.indexOf(' '));
+                // const name = str.substring(str.indexOf(' ') + 1);
+                window.location.href = `/Ingredient/${name}`;
             });
             ing.addEventListener('contextmenu', (event) => {
                 event.preventDefault();
@@ -99,18 +129,47 @@ function Home(props) {
             saveLocalStorage([], "init-save2");
             data.forEach((ing) => { addIngredient(ing); });
         }
+        function setCombinations() {
+            const names = loadLocalStorage("setComb-load");
+            const possibleNames = combination(names);
+            if (possibleNames.length === 0) {
+                const comb = document.createElement("div");
+                comb.classList.add("comb");
+                comb.innerText = "No possible cocktail!";
+                combinations.appendChild(comb);
+            }
+            possibleNames.forEach((name) => {
+                const comb = document.createElement("div");
+                comb.id = `id-${name}`;
+                comb.classList.add("comb");
+                comb.innerText = name;
+                comb.addEventListener("click", () => {
+                    window.location.href = `/cocktail/${name}`;
+                });
+                combinations.appendChild(comb);
+            });
+        }
+        combinationElem.addEventListener("click", () => {
+            setCombinations();
+        });
     };
     return (
-        <div className="home">
-            <div className="logo">🍸</div>
-            <div className="search-bar">
-                <div className="psuedo-search-bar">
-                    🔍<input id="searchInput" className="search-input" placeholder="Ingredient"></input>
+        <div>
+            <div className="padding?"></div>
+            <div className="home">
+                <div className="logo">🍷</div>
+                <div className="search-bar">
+                    <div className="psuedo-search-bar">
+                        🔍<input id="searchInput" className="search-input" placeholder="Ingredient"></input>
+                    </div>
+                    <div id="autocomplete" className="autocomplete"></div>
                 </div>
-                <div id="autocomplete" className="autocomplete"></div>
+                <div className="ingredients-info">My list</div>
+                <div id="ingredients" className="ingredients"></div>
+                <button id="combination-button" className="combination">🥴</button>
+                <div id="combinations" className="combinations"></div>
             </div>
-            <div className="ingredients-info">My list</div>
-            <div id="ingredients" className="ingredients"></div>
+            <div className="ps">Ps : Yurim Jeuk SangOh</div>
         </div>
     );
 }

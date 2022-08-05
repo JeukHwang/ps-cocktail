@@ -11,7 +11,6 @@
     transform: translate(-50%, -50%);
 
 	display: flex;
-	height: 100%;
 	background-color: #000000;
 	justify-content: center;
 	justify-items: center;
@@ -98,6 +97,10 @@
 	border-radius: 10px;
 }
 
+.words-button {
+    display: contents;
+}
+
 .ingredients-info {
     color: #660000;
     font-weight: bold;
@@ -115,11 +118,39 @@
 .ingredients .ingredient {
 	margin: 10px 0px;
 	padding: 5px;
-	color: black;
-	background-color: #660000;
+	color: #660000;
+	background-color: white;
 	width: min(50vw, 300px);
 	height: 20px;
 	border-radius: 10px;
+}
+
+.combination {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.comb {
+	margin: 10px 0px;
+	padding: 5px;
+	color: #660000;
+	background-color: white;
+	width: min(50vw, 300px);
+	height: 20px;
+	border-radius: 10px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+.ps {
+    font-family: 'Dancing Script', cursive;
+    position: absolute;
+    width: 200px;
+    height: 30px;
+    right: 0px;
+    bottom: 0px;
+    color: white;
 }
 
 .user-data-row {
