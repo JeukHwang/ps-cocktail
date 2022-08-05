@@ -1,3 +1,5 @@
+import fetch from "node-fetch";
+
 type Ingredient = {
     id: number,
     name: string,
@@ -29,8 +31,13 @@ function splitSentences(str:string):string[] {
     return (str || "").replace(/([.?!])\s*(?=[A-Z])/g, "$1|").split("|");
 }
 
-export function readableIngredient(data:any): Ingredient {
-    console.log(data);
+export async function ingredientToDrink(ingredient: string):Promise<string[]> {
+    const drinkResponse = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`);
+    const drinkData:any = await drinkResponse.json();
+    return drinkData.drinks.map((drink: any) => drink.strDrink)
+}
+
+export async function readableIngredient(data:any): Promise<Ingredient> {
     return {
         id: parseInt(data.idIngredient, 10),
         name: data.strIngredient,
@@ -39,7 +46,7 @@ export function readableIngredient(data:any): Ingredient {
         abv: parseInt(data.strABV || "-1", 10),
 
         type: data.strType,
-        drinks: []
+        drinks: await ingredientToDrink(data.strIngredient)
     }
 }
 // https://www.thecocktaildb.com/api/json/v1/1/search.php?i=vodka
