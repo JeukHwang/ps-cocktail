@@ -1,0 +1,89 @@
+.home {
+	display: flex;
+	height: 100%;
+	background-color: #000000;
+	justify-content: center;
+	justify-items: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.input-user-data {
+	width: 70%;
+	height: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	flex-direction: column;
+	justify-self: center;
+}
+
+.user-data-row {
+	width: 100%;
+	height: 30%;
+	display: flex;
+	flex-direction: row;
+}
+
+.user-data-row-title {
+	text-align: left;
+	width: 6rem;
+	color: rgb(255, 255, 255);
+}
+
+.user-data-row-input {
+	width: 80%;
+}
+
+.image-list {
+	width: 70%;
+	height: 50%;
+	margin-bottom: 10%;
+	background-color: #ffffff;
+}
+
+.main-img {
+	display: flex;
+	height: 30%;
+}
+
+.home-info {
+	display: flex;
+	flex-direction: row;
+	height: 10%;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+#home-button {
+	width: 5rem;
+	height: 30%;
+	background-color: #ffffff99;
+	cursor: pointer;
+	display: flex;
+	text-align: center;
+	color: rgb(255, 255, 255);
+	align-items: center;
+	justify-content: center;
+	user-select: none;
+	border: 1.5px solid #00000077;
+	border-radius: 10px;
+}
+
+#home-button:hover {
+	border-width: 2px;
+	border-color: #000000;
+	font-weight: bold;
+	box-shadow: 1px 1px 3px 1px gray;
+}
+
+#showbar {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
