@@ -15,7 +15,7 @@ function Ingredient(props) {
 	return (
 		<div className="ingredient">
 			<strong className="title">
-				<div className="highlight">INGREDIENT NAME</div>
+				<div className="highlight">INGREDIENT</div>
 				{ind.strIngredient}
 			</strong>
 			<div className="content">
@@ -24,7 +24,7 @@ function Ingredient(props) {
 			</div>
 			<div className="content">
 				<div className="highlight">ABV</div>
-				{ind.strABV}
+				{ind.strABV}%
 			</div>
 		</div>
 	);
