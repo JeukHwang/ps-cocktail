@@ -97,3 +97,7 @@ export function combination(names) {
 
 console.log(Ingredient(ingredients[0]));
 console.log(Cocktail(cocktails[0]));
+<<<<<<< Updated upstream
+=======
+console.log(search("wergfdfkogroedfg"));
+>>>>>>> Stashed changes
