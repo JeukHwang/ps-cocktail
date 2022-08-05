@@ -1,33 +1,41 @@
 import { Navigate, useParams } from "react-router-dom";
-import indg from "./localbackend/ingredients.json";
 import "./Ingredient.css";
+import { search } from "./localbackend";
 
 function HandleOnInput({ el, maxlength }) {
 	if (el.length > maxlength) {
-		el = el.substr(0, maxlength) + "...";
+		const text = el.splice(0, maxlength).join("\n");
+		return (
+			<div>
+				{text}
+				<br />. . .
+			</div>
+		);
+	} else {
+		const text = el.join("\n");
+		return <div>{text}</div>;
 	}
-	return <div>{el}</div>;
 }
 
 function Ingredient(props) {
 	const { name } = useParams();
-	const ind = indg.find((indg) => indg.strIngredient === name);
+	const ind = search(name);
+	console.log(ind);
 	return (
 		<div className="ingredient">
 			<strong className="title">
 				<div className="highlight">INGREDIENT</div>
-				{ind.strIngredient}
+				{ind.name}
 			</strong>
 			<div className="content">
 				<div className="highlight">DESCIPTION</div>
-				<HandleOnInput el={ind.strDescription} maxlength={500} />
+				<HandleOnInput el={ind.description} maxlength={5} />
 			</div>
 			<div className="content">
 				<div className="highlight">ABV</div>
-				{ind.strABV}%
+				{ind.abv}%
 			</div>
 		</div>
 	);
 }
-
 export default Ingredient;

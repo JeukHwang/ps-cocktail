@@ -10,12 +10,14 @@
 }
 .title {
 	font-size: 1.5em;
+	margin-top: 2%;
 	margin-bottom: 2%;
 }
 .content {
 	font-size: 1.2em;
 	margin-bottom: 2%;
 	flex-direction: row;
+	white-space: pre-wrap;
 }
 .highlight {
 	font-size: 1.3em;
@@ -23,10 +25,11 @@
 }
 .images {
 	width: auto;
-	height: 50%;
+	height: 40%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	color: aliceblue;
+	margin-bottom: 2%;
 }

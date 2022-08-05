@@ -10,6 +10,7 @@
 }
 .title {
 	font-size: 1.5em;
+	margin-top: 2%;
 	margin-bottom: 2%;
 }
 .content {
@@ -17,19 +18,9 @@
 	width: 70%;
 	margin-bottom: 2%;
 	flex-direction: row;
+	white-space: pre-wrap;
 }
 .highlight {
 	font-size: 1.3em;
 	color: #660000;
-}
-.images {
-	width: auto;
-	height: 50%;
-	display: flex;
-	overflow: auto;
-	border-radius: 20px;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	color: aliceblue;
 }
