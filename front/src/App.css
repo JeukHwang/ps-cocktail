@@ -1,12 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500&display=swap");
 * {
-    font-family: 'Noto Sans', sans-serif;
+	font-family: "Noto Sans", sans-serif;
 }
 
 .App {
 	height: 100vh;
 	background-color: #000000;
 	text-align: center;
+	justify-content: center;
+	align-items: center;
 }
 
 .App-logo {
@@ -43,4 +45,3 @@
 		transform: rotate(360deg);
 	}
 }
-

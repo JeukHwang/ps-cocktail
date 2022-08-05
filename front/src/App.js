@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import Cocktail from "./Cocktail";
+import Ingredient from "./Ingredient";
 import Error from "./Error";
 import { useState } from "react";
 
@@ -25,6 +26,7 @@ function App() {
 					/>
 
 					<Route path="/cocktail/:name" element={<Cocktail />} />
+					<Route path="/ingredient/:name" element={<Ingredient />} />
 					<Route
 						path="*"
 						element={
