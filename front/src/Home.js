@@ -1,6 +1,7 @@
 import "./Home.css";
 import { autoComplete } from "./localbackend/index.js";
 
+
 function Home(props) {
     return (
         <div className="home">
@@ -17,16 +18,26 @@ function Home(props) {
 }
 
 window.onload = () => {
+    function saveLocalStorage(data, id) {
+        localStorage.setItem("ings", JSON.stringify(data));
+        console.log("save", data?.length, id);
+    }
+
+    function loadLocalStorage(id) {
+        const data = JSON.parse(localStorage.getItem("ings"));
+        console.log("load", data?.length, id);
+        return data;
+    }
     const searchInput = document.getElementById("searchInput");
-    document.body.addEventListener("keypress", (event) => {
-        if (event.key === "Enter") {
-            if (searchInput.value === "") { return; }
-            console.log("add!");
-            addIngredient(searchInput.value);
-            searchInput.value = "";
-            return;
-        }
-    });
+    // document.body.addEventListener("keypress", (event) => {
+    //     if (event.key === "Enter") {
+    //         if (searchInput.value === "") { return; }
+    //         console.log("add!");
+    //         addIngredient(searchInput.value);
+    //         searchInput.value = "";
+    //         return;
+    //     }
+    // });
     const autocompleteElem = document.getElementById("autocomplete");
     function setAutocomplete() {
         while (autocompleteElem.lastElementChild) {
@@ -47,7 +58,7 @@ window.onload = () => {
             });
             autocompleteElem.appendChild(text);
         });
-        if (words.length -maxNum > 0) {
+        if (words.length - maxNum > 0) {
             const text = document.createElement("div");
             text.classList.add("autocomplete-words");
             text.innerText = `${words.length - maxNum} more results ...`;
@@ -62,24 +73,27 @@ window.onload = () => {
     const ings = document.getElementById("ingredients");
 
     function removeIngredient(name) {
-        const localIngs = localStorage.getItem("ings");
+        const localIngs = loadLocalStorage("removeIngredient-load");
         if (localIngs.includes(name)) {
             const index = localIngs.indexOf(name);
             if (index > -1) { localIngs.splice(index, 1); }
         }
-        localStorage.setItem("ings", localIngs);
-        const element = document.getElementById(`ing-${name}`);
+        saveLocalStorage(localIngs, "removeIngredient-save");
+        const element = document.getElementById(`id-${name}`);
         element.remove();
     }
 
     function addIngredient(name) {
-        localStorage.setItem("ings", [...localStorage.getItem("ings"), name]);
+        saveLocalStorage([...loadLocalStorage("addIngredient-load"), name], "addIngredient-save");
         const ing = document.createElement("div");
-        ing.id = `ing-${name}`;
+        ing.id = `id-${name}`;
         ing.classList.add("ingredient");
         ing.innerText = name;
         ing.addEventListener("click", () => {
-            window.location.href = `/cocktail/${name}`;
+            const str = ing.innerText;
+            const type = str.substring(0, str.indexOf(' '));
+            const name = str.substring(str.indexOf(' ') + 1);
+            window.location.href = `/${type}/${name}`;
         });
         ing.addEventListener('contextmenu', (event) => {
             event.preventDefault();
@@ -87,12 +101,16 @@ window.onload = () => {
         });
         ings.appendChild(ing);
     }
-    const localIngs = localStorage.getItem("ings");
-    if (!localIngs) {
-        localStorage.setItem("ings", []); // Initial
+
+    const data = loadLocalStorage("init-load");
+    if (!data) {
+        saveLocalStorage([], "init-save"); // Initial
     } else {
-        localStorage.getItem("ings").forEach((ing) => { addIngredient(ing); });
+        saveLocalStorage([], "init-save2");
+        data.forEach((ing) => { addIngredient(ing); });
     }
+
+    console.log(autoComplete("Cocktail Cafe Savoy"))
 };
 
 export default Home;

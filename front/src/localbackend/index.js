@@ -49,7 +49,7 @@ export function search(name) {
 }
 
 export function autoComplete(name) {
-    const filteredCocktails = cocktails.map((cocktail) => Cocktail(cocktail)).filter(cocktail => cocktail.name.includes(name));
+    const filteredCocktails = cocktails.map((cocktail) => Cocktail(cocktail)).filter(cocktail => cocktail.name === name || cocktail.name.includes(name));
     const filteredIngredients = ingredients.map((ing) => Ingredient(ing)).filter(ing => ing.name.includes(name));
     const data = [
         ...filteredCocktails.map((cocktail) => ["Cocktail", cocktail.name]),
