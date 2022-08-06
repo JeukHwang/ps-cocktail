@@ -51,12 +51,14 @@ export function Ingredient(data) {
 
 const ingredients = ingredients_.map((ingredient) => Ingredient(ingredient));
 
-export function search(name) {
+export function search(name, mode="default") {
     const filteredCocktails = cocktails
         .filter((cocktail) => cocktail.name === name);
     const filteredIngredients = ingredients
         .filter((ing) => ing.name === name);
-    const data = [...filteredIngredients, ...filteredCocktails][0];
+    let data = [...filteredIngredients, ...filteredCocktails][0];
+    if (mode === "ing") { data = filteredIngredients[0]; }
+    if (mode === "cock") { data = filteredCocktails[0]; }
     return data;
 }
 
@@ -76,23 +78,38 @@ export function autoComplete(name) {
 
 export function combination(names) {
     const filteredIngs = ingredients.filter((ing) => names.includes(ing.name));
-    const allDrinks = new Set();
-    filteredIngs.forEach((ing) => {
-        ing.drinks.forEach((drink) => {
-            allDrinks.add(drink);
-        });
-    });
     const possibleDrinks = [];
-    allDrinks.forEach((drink) => {
-        const canBeMade = filteredIngs.every((ing) => {
-            return ing.drinks.includes(drink);
+    filteredIngs[0].drinks.forEach((drinkName) => {
+        const drink = search(drinkName, "cock");
+        const canBeMade = drink.ingredients.every(([ing, measure]) => {
+            return names.includes(ing);
         });
         if (canBeMade) {
-            possibleDrinks.push(drink);
+            possibleDrinks.push(drink.name);
         }
     });
     return possibleDrinks;
 }
+
+// export function combination(names) {
+//     const filteredIngs = ingredients.filter((ing) => names.includes(ing.name));
+//     const allDrinks = new Set();
+//     filteredIngs.forEach((ing) => {
+//         ing.drinks.forEach((drink) => {
+//             allDrinks.add(drink);
+//         });
+//     });
+//     const possibleDrinks = [];
+//     allDrinks.forEach((drink) => {
+//         const canBeMade = filteredIngs.every((ing) => {
+//             return ing.drinks.includes(drink);
+//         });
+//         if (canBeMade) {
+//             possibleDrinks.push(drink);
+//         }
+//     });
+//     return possibleDrinks;
+// }
 
 // console.log(Ingredient(ingredients[0]));
 // console.log(Cocktail(cocktails[0]));

@@ -59,9 +59,9 @@ function Home(props) {
                 button.id = `/${type}/${word}`;
                 button.classList.add("words-button");
                 button.innerText = "🔗";
-                button.addEventListener("click", function() {
+                button.addEventListener("click", function () {
                     window.location.href = this.id;
-                }.bind(button))
+                }.bind(button));
                 text.appendChild(button);
                 autocompleteElem.appendChild(text);
             });
@@ -130,6 +130,7 @@ function Home(props) {
             data.forEach((ing) => { addIngredient(ing); });
         }
         function setCombinations() {
+            resetCombinations();
             const names = loadLocalStorage("setComb-load");
             const possibleNames = combination(names);
             if (possibleNames.length === 0) {
@@ -160,11 +161,11 @@ function Home(props) {
                 <div className="logo">🍷</div>
                 <div className="search-bar">
                     <div className="psuedo-search-bar">
-                        🔍<input id="searchInput" className="search-input" placeholder="Ingredient"></input>
+                        🔍<input id="searchInput" className="search-input" placeholder="Ingredient or cocktail"></input>
                     </div>
                     <div id="autocomplete" className="autocomplete"></div>
                 </div>
-                <div className="ingredients-info">My list</div>
+                <div className="ingredients-info">My ingredient</div>
                 <div id="ingredients" className="ingredients"></div>
                 <button id="combination-button" className="combination">🥴</button>
                 <div id="combinations" className="combinations"></div>
