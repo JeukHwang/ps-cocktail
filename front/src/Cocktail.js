@@ -19,7 +19,7 @@ function HandleOnInput({ el, maxlength }) {
 
 function Cocktail(props) {
 	const { name } = useParams();
-	const co = search(name);
+	const co = search(name, "cock");
 	console.log(co);
 	return (
 		<div className="cocktail">

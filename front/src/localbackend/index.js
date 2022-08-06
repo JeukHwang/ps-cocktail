@@ -51,7 +51,7 @@ export function Ingredient(data) {
 
 const ingredients = ingredients_.map((ingredient) => Ingredient(ingredient));
 
-export function search(name, mode="default") {
+export function search(name, mode = "default") {
     const filteredCocktails = cocktails
         .filter((cocktail) => cocktail.name === name);
     const filteredIngredients = ingredients

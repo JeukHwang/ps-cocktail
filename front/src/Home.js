@@ -6,12 +6,12 @@ function Home(props) {
     window.onload = () => {
         function saveLocalStorage(data, id) {
             localStorage.setItem("ings", JSON.stringify(data));
-            console.log("save", data?.length, id);
+            // console.log("save", data?.length, id);
         }
 
         function loadLocalStorage(id) {
             const data = JSON.parse(localStorage.getItem("ings"));
-            console.log("load", data?.length, id);
+            // console.log("load", data?.length, id);
             return data;
         }
         const searchInput = document.getElementById("searchInput");
