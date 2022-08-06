@@ -1,0 +1,26 @@
+.ingredient {
+	background-color: #000000;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: aliceblue;
+}
+.title {
+	font-size: 1.5em;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+.content {
+	font-size: 1.2em;
+	width: 70%;
+	margin-bottom: 2%;
+	flex-direction: row;
+	white-space: pre-wrap;
+}
+.highlight {
+	font-size: 1.3em;
+	color: #660000;
+}

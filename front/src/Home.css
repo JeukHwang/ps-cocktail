@@ -1,0 +1,220 @@
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.home {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+	display: flex;
+	background-color: #000000;
+	justify-content: center;
+	justify-items: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.home .logo {
+	font-size: 40px;
+	width: 60px;
+	height: 60px;
+
+	background-color: white;
+	border-radius: 30px;
+
+	margin: 20px;
+}
+
+.search-bar {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.psuedo-search-bar {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	background-color: white;
+
+	width: fit-content;
+	height: fit-content;
+	border-radius: 30px;
+
+	padding: 0px 20px;
+}
+
+.search-emoji {
+	font-size: 20px;
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+
+	background-color: white;
+}
+
+.search-input {
+	background-color: color;
+	border: none;
+	width: min(50vw, 300px);
+	height: 40px;
+	padding: 0px 20px;
+}
+
+.search-input:focus {
+	outline: none;
+}
+
+.input-user-data {
+	width: 70%;
+	height: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	flex-direction: column;
+	justify-self: center;
+}
+
+.autocomplete {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 5px;
+}
+
+.autocomplete-words {
+	margin: 10px 0px;
+	padding: 5px;
+	color: black;
+	background-color: white;
+	width: min(50vw, 300px);
+	height: 20px;
+	border-radius: 10px;
+}
+
+.words-button {
+    display: contents;
+}
+
+.ingredients-info {
+    color: #660000;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.ingredients {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 5px;
+}
+
+.ingredients .ingredient {
+	margin: 10px 0px;
+	padding: 5px;
+	color: #660000;
+	background-color: white;
+	width: min(50vw, 300px);
+	height: 20px;
+	border-radius: 10px;
+}
+
+.combination {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.comb {
+	margin: 10px 0px;
+	padding: 5px;
+	color: #660000;
+	background-color: white;
+	width: min(50vw, 300px);
+	height: 20px;
+	border-radius: 10px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+.ps {
+    font-family: 'Dancing Script', cursive;
+    position: absolute;
+    width: 200px;
+    height: 30px;
+    right: 0px;
+    bottom: 0px;
+    color: white;
+}
+
+.user-data-row {
+	width: 100%;
+	height: 30%;
+	display: flex;
+	flex-direction: row;
+}
+
+.user-data-row-title {
+	text-align: left;
+	width: 6rem;
+	color: rgb(255, 255, 255);
+}
+
+.user-data-row-input {
+	width: 80%;
+}
+
+.image-list {
+	width: 70%;
+	height: 50%;
+	margin-bottom: 10%;
+	background-color: #ffffff;
+}
+
+.home-info {
+	display: flex;
+	flex-direction: row;
+	height: 10%;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+#home-button {
+	width: 5rem;
+	height: 30%;
+	background-color: #ffffff99;
+	cursor: pointer;
+	display: flex;
+	text-align: center;
+	color: rgb(255, 255, 255);
+	align-items: center;
+	justify-content: center;
+	user-select: none;
+	border: 1.5px solid #00000077;
+	border-radius: 10px;
+}
+
+#home-button:hover {
+	border-width: 2px;
+	border-color: #000000;
+	font-weight: bold;
+	box-shadow: 1px 1px 3px 1px gray;
+}
+
+#showbar {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
